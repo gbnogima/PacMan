@@ -1,7 +1,7 @@
 package control;
 
 import elements.Element;
-import elements.Lolo;
+import elements.Pacman;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -18,10 +18,10 @@ public class GameController {
         if(e.isEmpty())
             return;
         
-        Lolo lLolo = (Lolo)e.get(0);
+        Pacman lLolo = (Pacman)e.get(0);
         if (!isValidPosition(e, lLolo)) {
             lLolo.backToLastPosition();
-            lLolo.setMovDirection(Lolo.STOP);
+            lLolo.setMovDirection(Pacman.STOP);
             return;
         }
         

@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.io.Serializable;
 
 
-public class Lolo extends Element  implements Serializable{
+public class Pacman extends Element  implements Serializable{
     
     public static final int STOP = 0;
     public static final int MOVE_LEFT = 1;
@@ -15,7 +15,7 @@ public class Lolo extends Element  implements Serializable{
     
     private int movDirection = STOP;
     
-    public Lolo(String imageName) {
+    public Pacman(String imageName) {
         super(imageName);
     }
     

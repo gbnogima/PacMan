@@ -1,7 +1,7 @@
 package control;
 
 import elements.Parede;
-import elements.Lolo;
+import elements.Pacman;
 import elements.Element;
 import utils.Consts;
 import utils.Drawing;
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  */
 public class GameScreen extends javax.swing.JFrame implements KeyListener {
     
-    private final Lolo lolo;
+    private final Pacman lolo;
     private final ArrayList<Element> elemArray;
     private final GameController controller = new GameController();
 
@@ -42,8 +42,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         elemArray = new ArrayList<Element>();
 
         /*Cria e adiciona elementos*/
-        lolo = new Lolo("lolo.png");
-        lolo.setPosition(15, 15);
+        lolo = new Pacman("pacman_right.png");
         this.addElement(lolo);
         
         //parede lateral esquerda
@@ -138,15 +137,19 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            lolo.setMovDirection(Lolo.MOVE_UP);
+            lolo.setImageIcon("pacman_up.png");
+            lolo.setMovDirection(Pacman.MOVE_UP);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            lolo.setMovDirection(Lolo.MOVE_DOWN);
+            lolo.setImageIcon("pacman_down.png");
+            lolo.setMovDirection(Pacman.MOVE_DOWN);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            lolo.setMovDirection(Lolo.MOVE_LEFT);
+            lolo.setImageIcon("pacman_left.png");
+            lolo.setMovDirection(Pacman.MOVE_LEFT);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            lolo.setMovDirection(Lolo.MOVE_RIGHT);
+            lolo.setImageIcon("pacman_right.png");
+            lolo.setMovDirection(Pacman.MOVE_RIGHT);
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            lolo.setMovDirection(Lolo.STOP);
+            lolo.setMovDirection(Pacman.STOP);
         }
         
         //repaint(); /*invoca o paint imediatamente, sem aguardar o refresh*/

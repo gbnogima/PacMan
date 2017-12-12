@@ -27,6 +27,10 @@ public abstract class Element implements Serializable{
         this.isTransposable = true;
         this.isMortal = false;
         
+        this.setImageIcon(imageName);
+    }
+    
+    public final void setImageIcon(String imageName) {
         try {
             imageIcon = new ImageIcon(new java.io.File(".").getCanonicalPath() + Consts.PATH + imageName);
             Image img = imageIcon.getImage();
