@@ -16,6 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.Stage;
 
 /**
  * Projeto de POO 2017
@@ -45,40 +46,6 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         lolo = new Pacman("pacman_right.png");
         this.addElement(lolo);
         
-        //parede lateral esquerda
-        for(int i=0;i<18;i++){
-        Parede paredev = new Parede("parederetavertical.png");
-        paredev.setPosition(1+i,0);
-        this.addElement(paredev);
-        }
-        //parede lateral direita
-        for(int i=0;i<18;i++){
-        Parede paredev = new Parede("parederetavertical.png");
-        paredev.setPosition(1+i,19);
-        this.addElement(paredev);
-        }
-        //parede de baixo
-        for(int i=0;i<18;i++){
-        Parede paredeh = new Parede("parederetahorizontal.png");
-        paredeh.setPosition(19,1+i);
-        this.addElement(paredeh);
-        }
-        //parede de cima
-        for(int i=0;i<18;i++){
-        Parede paredeh = new Parede("parederetahorizontal.png");
-        paredeh.setPosition(0,1+i);
-        this.addElement(paredeh);
-        }
-        //bordas
-        for(int i=0;i<20;i+=19)
-        {
-            for(int j=0;j<20;j+=19){
-        Parede borda = new Parede("bordas.png");
-        borda.setPosition(i,j);
-        this.addElement(borda);
-            }
-        }
-        
     }
     
     public final void addElement(Element elem) {
@@ -96,6 +63,9 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         /*Criamos um contexto grafico*/
         Graphics g2 = g.create(getInsets().right, getInsets().top, getWidth() - getInsets().left, getHeight() - getInsets().bottom);
         
+        /*Desenha fase*/
+        
+        
         /* DESENHA CENARIO
            Trocar essa parte por uma estrutura mais bem organizada
            Utilizando a classe Stage
@@ -112,6 +82,9 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
                 }
             }
         }
+        
+        Stage.draw(g2, Consts.stage1);
+        
         
         this.controller.drawAllElements(elemArray, g2);
         this.controller.processAllElements(elemArray);
