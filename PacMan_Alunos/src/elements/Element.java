@@ -65,6 +65,10 @@ public abstract class Element implements Serializable{
     public boolean isTransposable() {
         return isTransposable;
     }
+    
+    public boolean isMortal() {
+        return this.isMortal;
+    }
 
     public void setTransposable(boolean isTransposable) {
         this.isTransposable = isTransposable;

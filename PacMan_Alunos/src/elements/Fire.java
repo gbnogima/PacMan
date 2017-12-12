@@ -9,7 +9,7 @@ public class Fire extends Element implements Serializable{
 
     public Fire(String imageName) {
         super(imageName);
-        this.isMortal = true;
+        this.isMortal = false;
     }
 
     @Override

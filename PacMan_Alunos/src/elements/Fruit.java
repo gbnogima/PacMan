@@ -12,6 +12,7 @@ public class Fruit extends Element{
     public Fruit(String imageName) {
         super(imageName);
         this.isMortal = true;
+        this.isTransposable = false;
     }
 
     @Override
