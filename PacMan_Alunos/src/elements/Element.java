@@ -91,4 +91,8 @@ public abstract class Element implements Serializable{
     public boolean moveLeft() {
         return this.pos.moveLeft();
     }
+
+    public void setMovDirection(int STOP) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

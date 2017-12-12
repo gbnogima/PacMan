@@ -20,11 +20,6 @@ public class GameController {
         
         Pacman lPacman = (Pacman)e.get(0);
         if (!isValidPosition(e, lPacman)) {
-            if(isMortal(e, lPacman)){
-                lPacman.setPosition(15.0,9.0);
-                lPacman.setMovDirection(Pacman.STOP);
-                return;
-            }
             lPacman.backToLastPosition();
             lPacman.setMovDirection(Pacman.STOP);
             return;
@@ -33,9 +28,15 @@ public class GameController {
         Element eTemp;
         for(int i = 1; i < e.size(); i++){
             eTemp = e.get(i);
-            if(lPacman.overlap(eTemp))
+            if(lPacman.overlap(eTemp)){
                 if(eTemp.isTransposable())
                     e.remove(eTemp);
+                else if (eTemp.isMortal()){
+                    lPacman.setPosition(15.0, 9.0);
+                    lPacman.setMovDirection(Pacman.STOP);
+                }
+            
+            }
         }
         
         lPacman.move();
@@ -44,24 +45,13 @@ public class GameController {
         Element elemAux;
         for(int i = 1; i < elemArray.size(); i++){
             elemAux = elemArray.get(i);            
-            if(!elemAux.isTransposable())
+            if(!elemAux.isTransposable() && !elemAux.isMortal())
                 if(elemAux.overlap(elem))
                     return false;
         }        
         return true;
     }
-    
-    public boolean isMortal(ArrayList<Element> elemArray, Element elem){
-        Element elemAux;
-        for(int i = 1; i < elemArray.size(); i++){
-            elemAux = elemArray.get(i);            
-            if(!elemAux.isTransposable())
-                if(elemAux.overlap(elem) && elemAux.isMortal())
-                        return true;
-                    
-        }        
-        return false;
-    }
+   
 }
 
 
