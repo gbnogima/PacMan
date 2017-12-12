@@ -31,7 +31,7 @@ public class GameController {
             if(lPacman.overlap(eTemp)){
                 if(eTemp.isTransposable())
                     e.remove(eTemp);
-                else if (eTemp.isMortal()){
+                else if (eTemp.isMortal()){ //detecta que morreu
                     lPacman.setPosition(15.0, 9.0);
                     lPacman.setMovDirection(Pacman.STOP);
                 }
