@@ -3,6 +3,7 @@ package control;
 import elements.Parede;
 import elements.Pacman;
 import elements.Element;
+import elements.Fire;
 import utils.Consts;
 import utils.Drawing;
 import java.awt.Graphics;
@@ -16,7 +17,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.Stage;
 
 /**
  * Projeto de POO 2017
@@ -26,7 +26,7 @@ import utils.Stage;
  */
 public class GameScreen extends javax.swing.JFrame implements KeyListener {
     
-    private final Pacman lolo;
+    private final Pacman Pacman;
     private final ArrayList<Element> elemArray;
     private final GameController controller = new GameController();
 
@@ -43,9 +43,69 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         elemArray = new ArrayList<Element>();
 
         /*Cria e adiciona elementos*/
-        lolo = new Pacman("pacman_right.png");
-        this.addElement(lolo);
+        Pacman = new Pacman("Pacman.png");
+        Pacman.setPosition(15,9);
+        this.addElement(Pacman);
         
+int [][] s =	{	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
+                        { 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2},
+                        { 2, 0, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 4, 0, 2},
+                        { 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 1, 6, 0, 2, 0, 2, 0, 2, 0, 5, 1, 0, 2, 0, 2},
+                        { 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2},
+                        { 2, 0, 2, 0, 1, 1, 1, 6, 0, 2, 0, 5, 1, 1, 1, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 2, 0, 3, 1, 1, 0, 1, 1, 4, 0, 2, 0, 2, 0, 2},
+                        { 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 2},
+                        { 2, 0, 2, 0, 2, 0, 5, 1, 1, 1, 1, 1, 6, 0, 2, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 1, 1, 1, 4, 0, 2, 0, 3, 1, 1, 1, 0, 2, 0, 2},
+                        { 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2},
+                        { 2, 0, 2, 0, 1, 4, 0, 2, 0, 2, 0, 2, 0, 3, 1, 0, 2, 0, 2},
+                        { 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 2},
+                        { 2, 0, 5, 1, 0, 2, 0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 6, 0, 2},
+                	{ 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2},
+                	{ 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6}};
+
+       for (int i = 0; i<19; i++){
+           for(int j = 0; j<19;j++){
+               if (s[i][j]== 1){
+                  Parede p1 = new Parede("hor.png");
+                  p1.setPosition(i,j);
+                  this.addElement(p1); 
+               }
+               if (s[i][j]== 2){
+                  Parede p2 = new Parede("ver.png");
+                  p2.setPosition(i,j);
+                  this.addElement(p2); 
+               }
+               if (s[i][j]== 3){
+                  Parede p3 = new Parede("sesq.png");
+                  p3.setPosition(i,j);
+                  this.addElement(p3); 
+               }
+               if (s[i][j]== 4){
+                  Parede p4 = new Parede("sdir.png");
+                  p4.setPosition(i,j);
+                  this.addElement(p4); 
+               }
+               if (s[i][j]== 5){
+                  Parede p5 = new Parede("iesq.png");
+                  p5.setPosition(i,j);
+                  this.addElement(p5); 
+               }
+               if (s[i][j]== 6){
+                  Parede p6 = new Parede("idir.png");
+                  p6.setPosition(i,j);
+                  this.addElement(p6); 
+               }
+               if (s[i][j]== 0){
+                   Fire ball = new Fire("fire.png");
+                   ball.setPosition (i,j);
+                   this.addElement(ball);
+           }
+    }
+    }
     }
     
     public final void addElement(Element elem) {
@@ -62,9 +122,6 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         
         /*Criamos um contexto grafico*/
         Graphics g2 = g.create(getInsets().right, getInsets().top, getWidth() - getInsets().left, getHeight() - getInsets().bottom);
-        
-        /*Desenha fase*/
-        
         
         /* DESENHA CENARIO
            Trocar essa parte por uma estrutura mais bem organizada
@@ -83,12 +140,9 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
             }
         }
         
-        Stage.draw(g2, Consts.stage1);
-        
-        
         this.controller.drawAllElements(elemArray, g2);
         this.controller.processAllElements(elemArray);
-        this.setTitle("-> Cell: " + lolo.getStringPosition());
+        this.setTitle("-> Cell: " + Pacman.getStringPosition());
         
         g.dispose();
         g2.dispose();
@@ -108,26 +162,23 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         timer.schedule(task, 0, Consts.DELAY);
     }
     
-    public void keyPressed(KeyEvent e) {
+     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            lolo.setImageIcon("pacman_up.png");
-            lolo.setMovDirection(Pacman.MOVE_UP);
+            Pacman.setImageIcon("pacman_up.png");
+            Pacman.setMovDirection(Pacman.MOVE_UP);
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            lolo.setImageIcon("pacman_down.png");
-            lolo.setMovDirection(Pacman.MOVE_DOWN);
+            Pacman.setImageIcon("pacman_down.png");
+            Pacman.setMovDirection(Pacman.MOVE_DOWN);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            lolo.setImageIcon("pacman_left.png");
-            lolo.setMovDirection(Pacman.MOVE_LEFT);
+            Pacman.setImageIcon("pacman_left.png");
+            Pacman.setMovDirection(Pacman.MOVE_LEFT);
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            lolo.setImageIcon("pacman_right.png");
-            lolo.setMovDirection(Pacman.MOVE_RIGHT);
+            Pacman.setImageIcon("pacman_right.png");
+            Pacman.setMovDirection(Pacman.MOVE_RIGHT);
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            lolo.setMovDirection(Pacman.STOP);
+            Pacman.setMovDirection(Pacman.STOP);
         }
-        
-        //repaint(); /*invoca o paint imediatamente, sem aguardar o refresh*/
-    }
-    
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

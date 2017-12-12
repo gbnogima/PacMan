@@ -48,7 +48,7 @@ public abstract class Element implements Serializable{
         double xDist = Math.abs(elem.pos.getX() - this.pos.getX());
         double yDist = Math.abs(elem.pos.getY() - this.pos.getY());
         
-        if (xDist < 1.0 && yDist < 1.0)
+        if (xDist < 0.7 && yDist < 0.7)
             return true;
         else
             return false;

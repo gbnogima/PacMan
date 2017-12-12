@@ -15,8 +15,6 @@ public class Fire extends Element implements Serializable{
     @Override
     public void autoDraw(Graphics g) {
         Drawing.draw(g, this.imageIcon, pos.getY(), pos.getX());
-        if(!this.moveRight())
-            Drawing.getGameScreen().removeElement(this);
     }
     
 }

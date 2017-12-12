@@ -18,22 +18,22 @@ public class GameController {
         if(e.isEmpty())
             return;
         
-        Pacman lLolo = (Pacman)e.get(0);
-        if (!isValidPosition(e, lLolo)) {
-            lLolo.backToLastPosition();
-            lLolo.setMovDirection(Pacman.STOP);
+        Pacman lPacman = (Pacman)e.get(0);
+        if (!isValidPosition(e, lPacman)) {
+            lPacman.backToLastPosition();
+            lPacman.setMovDirection(Pacman.STOP);
             return;
         }
         
         Element eTemp;
         for(int i = 1; i < e.size(); i++){
             eTemp = e.get(i);
-            if(lLolo.overlap(eTemp))
+            if(lPacman.overlap(eTemp))
                 if(eTemp.isTransposable())
                     e.remove(eTemp);
         }
         
-        lLolo.move();
+        lPacman.move();
     }
     public boolean isValidPosition(ArrayList<Element> elemArray, Element elem){
         Element elemAux;
