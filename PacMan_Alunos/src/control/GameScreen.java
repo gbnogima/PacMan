@@ -42,7 +42,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         this.setSize(Consts.NUM_CELLS * Consts.CELL_SIZE + getInsets().left + getInsets().right,
                      Consts.NUM_CELLS * Consts.CELL_SIZE + getInsets().top + getInsets().bottom);
 
-        elemArray = new ArrayList<Element>();
+        elemArray = new ArrayList<>();
 
         /*Cria e adiciona elementos*/
         Pacman = new Pacman("Pacman.png");
