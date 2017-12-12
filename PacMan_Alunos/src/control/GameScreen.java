@@ -1,6 +1,6 @@
 package control;
 
-import elements.Skull;
+import elements.Parede;
 import elements.Lolo;
 import elements.Element;
 import utils.Consts;
@@ -43,12 +43,30 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
 
         /*Cria e adiciona elementos*/
         lolo = new Lolo("lolo.png");
-        lolo.setPosition(0, 0);
+        lolo.setPosition(15, 15);
         this.addElement(lolo);
         
-        Skull skull = new Skull("caveira.png");
-        skull.setPosition(9, 1);
-        this.addElement(skull);  
+        
+        for(int i=0;i<17;i++){
+        Parede paredev = new Parede("parederetavertical.png");
+        paredev.setPosition(1+i,0);
+        this.addElement(paredev);
+        }
+        
+        for(int i=0;i<17;i++){
+        Parede paredev = new Parede("parederetavertical.png");
+        paredev.setPosition(1+i,19);
+        this.addElement(paredev);
+        }
+        
+        for(int i=0;i<17;i++){
+        Parede paredeh = new Parede("parederetahorizontal.png");
+        paredeh.setPosition(19,15);
+        this.addElement(paredeh);
+        }
+        
+        
+        
     }
     
     public final void addElement(Element elem) {

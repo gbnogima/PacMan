@@ -5,12 +5,9 @@ import elements.Lolo;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-/**
- * Projeto de POO 2017
- * 
- * @author Luiz Eduardo
- * Baseado em material do Prof. Jose Fernando Junior
- */
+
+
+
 public class GameController {
     public void drawAllElements(ArrayList<Element> elemArray, Graphics g){
         for(int i=0; i<elemArray.size(); i++){
