@@ -46,26 +46,39 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         lolo.setPosition(15, 15);
         this.addElement(lolo);
         
-        
-        for(int i=0;i<17;i++){
+        //parede lateral esquerda
+        for(int i=0;i<18;i++){
         Parede paredev = new Parede("parederetavertical.png");
         paredev.setPosition(1+i,0);
         this.addElement(paredev);
         }
-        
-        for(int i=0;i<17;i++){
+        //parede lateral direita
+        for(int i=0;i<18;i++){
         Parede paredev = new Parede("parederetavertical.png");
         paredev.setPosition(1+i,19);
         this.addElement(paredev);
         }
-        
-        for(int i=0;i<17;i++){
+        //parede de baixo
+        for(int i=0;i<18;i++){
         Parede paredeh = new Parede("parederetahorizontal.png");
-        paredeh.setPosition(19,15);
+        paredeh.setPosition(19,1+i);
         this.addElement(paredeh);
         }
-        
-        
+        //parede de cima
+        for(int i=0;i<18;i++){
+        Parede paredeh = new Parede("parederetahorizontal.png");
+        paredeh.setPosition(0,1+i);
+        this.addElement(paredeh);
+        }
+        //bordas
+        for(int i=0;i<20;i+=19)
+        {
+            for(int j=0;j<20;j+=19){
+        Parede borda = new Parede("bordas.png");
+        borda.setPosition(i,j);
+        this.addElement(borda);
+            }
+        }
         
     }
     
