@@ -1,6 +1,5 @@
 package control;
 
-import static control.Main.main;
 import elements.Element;
 import elements.Ghost;
 import elements.Pacman;
@@ -9,10 +8,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import utils.Consts;
 import utils.Stage;
-
-
 
 
 public class GameController {

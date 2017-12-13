@@ -38,38 +38,31 @@ public class Pacman extends Element  implements Serializable{
     public void Pontos(Element e)
     {
         
-       if(e instanceof Fire)
-       {
+       if(e instanceof Fire) {
            Points+=10;
            countItems--;
        }
        
-       if(e instanceof Fruit)
-       {
+       if(e instanceof Fruit) {
            Points+=200;
        }
        
        
-       if(e instanceof Powerup)
-       {
+       if(e instanceof Powerup){
            Points+=50;
            countItems--;
        }
        
-       if(e instanceof Ghost)
-       {
+       if(e instanceof Ghost) {
            Points+=500;
        }
     }
     
-    public int GetVidas()
-    {
+    public int GetVidas() {
        return Vidas;
     }
     
-    public int GetPoints()
-    {
-        
+    public int GetPoints(){
         return Points;
     }
     
@@ -78,6 +71,7 @@ public class Pacman extends Element  implements Serializable{
         this.pos.comeBack();
     }
     
+    @Override
     public void setMovDirection(int direction) {
         movDirection = direction;
     }

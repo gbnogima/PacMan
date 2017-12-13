@@ -7,7 +7,6 @@ package elements;
 import utils.Drawing;
 import java.awt.Graphics;
 import java.io.Serializable;
-import utils.Consts;
 import utils.Position;
 
 /**

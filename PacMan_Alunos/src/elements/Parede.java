@@ -1,10 +1,7 @@
 package elements;
 
-import utils.Consts;
 import utils.Drawing;
 import java.awt.Graphics;
-
-
 
 
 public class Parede extends Element{

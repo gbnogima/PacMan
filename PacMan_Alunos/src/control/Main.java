@@ -1,6 +1,5 @@
 package control;
 
-import elements.Pacman;
 
 /**
  * Projeto de POO 2017

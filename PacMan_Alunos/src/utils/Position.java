@@ -29,8 +29,7 @@ public class Position implements Serializable {
         int factor = (int)Math.pow(10, Consts.WALK_STEP_DEC_PLACES+1);
         x = (double)Math.round(x * factor) / factor;
         y = (double)Math.round(y * factor) / factor;
-        
-       
+              
         if(x < 0 || x > utils.Consts.NUM_CELLS-1)
             return false;
 

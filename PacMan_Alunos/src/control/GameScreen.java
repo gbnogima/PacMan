@@ -7,7 +7,6 @@ import elements.Fire;
 import elements.Fruit;
 import elements.Ghost;
 import elements.Powerup;
-import java.awt.Color;
 import utils.Consts;
 import utils.Drawing;
 import java.awt.Graphics;
@@ -21,7 +20,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
 import utils.Stage;
 import javax.swing.JOptionPane;
 
@@ -74,12 +72,19 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         this.addElement(g4);
         
         
-        if (Pacman.level == 1)
-            Stage.currentStage = Consts.s1;
-        else if (Pacman.level == 2)
-            Stage.currentStage = Consts.s2;
-        else if (Pacman.level == 3)
-            Stage.currentStage = Consts.s3;
+        switch (Pacman.level) {
+            case 1:
+                Stage.currentStage = Consts.s1;
+                break;
+            case 2:
+                Stage.currentStage = Consts.s2;
+                break;
+            case 3:
+                Stage.currentStage = Consts.s3;
+                break;
+            default:
+                break;
+        }
         
         for (int i = 0; i<19; i++){
            for(int j = 0; j<19;j++){
@@ -173,8 +178,10 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         this.setTitle("Pacman Pontuação:" + Pacman.GetPoints());
         label1.setText("Score:"+Pacman.GetPoints());
         label2.setText("Vidas:"+Pacman.GetVidas()); 
+        
         g.dispose();
         g2.dispose();
+        
         if(Pacman.GetVidas() == 0) {
             Pacman.level = 1;
             this.setVisible(false);
