@@ -6,6 +6,7 @@ import elements.Element;
 import elements.Fire;
 import elements.Fruit;
 import elements.Powerup;
+import java.awt.Color;
 import utils.Consts;
 import utils.Drawing;
 import java.awt.Graphics;
@@ -19,6 +20,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 /**
  * Projeto de POO 2017
@@ -177,10 +179,13 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
             }
         }
         
+       
+           
         this.controller.drawAllElements(elemArray, g2);
         this.controller.processAllElements(elemArray);
-        this.setTitle("-> Cell: " + Pacman.getStringPosition());
-        
+        this.setTitle("Pacman Pontuação:" + Pacman.GetPoints());
+     label1.setText("Score:"+Pacman.GetPoints());
+     
         g.dispose();
         g2.dispose();
         if (!getBufferStrategy().contentsLost()) {
@@ -241,26 +246,53 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        elements.Pacman Pac = new elements.Pacman("");
+        label1 = new java.awt.Label();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SCC0604 - Pacman");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(20, 20));
         setResizable(false);
 
+        label1.setBackground(java.awt.Color.black);
+        label1.setFont(new java.awt.Font("Noto Sans CJK JP Black", 0, 24)); // NOI18N
+        label1.setForeground(java.awt.Color.white);
+        label1.setText("Score"+ Pac.GetPoints());
+        label1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                label1KeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(459, Short.MAX_VALUE)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void label1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_label1KeyPressed
+        // TODO add your handling code here:
+        
+      
+    }//GEN-LAST:event_label1KeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
     
     @Override
