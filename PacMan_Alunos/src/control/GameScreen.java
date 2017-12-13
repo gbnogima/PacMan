@@ -5,6 +5,7 @@ import elements.Pacman;
 import elements.Element;
 import elements.Fire;
 import elements.Fruit;
+import elements.Ghost;
 import elements.Powerup;
 import utils.Consts;
 import utils.Drawing;
@@ -51,6 +52,10 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         Pacman = new Pacman("Pacman.png");
         Pacman.setPosition(15,9);
         this.addElement(Pacman);
+        
+        Ghost ghost = new Ghost("ghost.png");
+        ghost.setPosition(9,7);
+        this.addElement(ghost);
         
 /*int [][] s =	{	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
                         { 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 7, 2},
