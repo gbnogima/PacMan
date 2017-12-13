@@ -1,11 +1,13 @@
 package control;
 
+import static control.Main.main;
 import elements.Element;
 import elements.Ghost;
 import elements.Pacman;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import utils.Consts;
+import utils.Stage;
 
 
 
@@ -37,7 +39,7 @@ public class GameController {
                 lGhost.backToLastPosition();
                 switch(lGhost.getMovDirection()) {
                     case Ghost.MOVE_RIGHT:
-                        if(Consts.s[x+1][y] <= 0 && Consts.s[x-1][y] <= 0) {
+                        if(Stage.currentStage[x+1][y] <= 0 && Stage.currentStage[x-1][y] <= 0) {
                             if(Math.random() < 0.5) {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_DOWN);
@@ -45,10 +47,10 @@ public class GameController {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_UP);
                             }
-                        } else if(Consts.s[x+1][y] <= 0) {
+                        } else if(Stage.currentStage[x+1][y] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_DOWN);
-                        } else if(Consts.s[x-1][y] <= 0) {
+                        } else if(Stage.currentStage[x-1][y] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_UP);
                         } else {
@@ -56,7 +58,7 @@ public class GameController {
                         }
                         break;
                     case Ghost.MOVE_LEFT:
-                        if(Consts.s[x+1][y] <= 0 && Consts.s[x-1][y] <= 0) {
+                        if(Stage.currentStage[x+1][y] <= 0 && Stage.currentStage[x-1][y] <= 0) {
                             if(Math.random() < 0.5) {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_DOWN);
@@ -64,10 +66,10 @@ public class GameController {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_UP);
                             }
-                        } else if(Consts.s[x+1][y] <= 0) {
+                        } else if(Stage.currentStage[x+1][y] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_DOWN);
-                        } else if(Consts.s[x-1][y] <= 0) {
+                        } else if(Stage.currentStage[x-1][y] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_UP);
                         } else {
@@ -75,7 +77,7 @@ public class GameController {
                         }
                         break;
                     case Ghost.MOVE_UP:
-                        if(Consts.s[x][y+1] <= 0 && Consts.s[x][y-1] <= 0) {
+                        if(Stage.currentStage[x][y+1] <= 0 && Stage.currentStage[x][y-1] <= 0) {
                             if(Math.random() < 0.5) {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_RIGHT);
@@ -83,10 +85,10 @@ public class GameController {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_LEFT);
                             }
-                        } else if(Consts.s[x][y+1] <= 0) {
+                        } else if(Stage.currentStage[x][y+1] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_RIGHT);
-                        } else if(Consts.s[x][y-1] <= 0) {
+                        } else if(Stage.currentStage[x][y-1] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_LEFT);
                         } else {
@@ -94,7 +96,7 @@ public class GameController {
                         }
                         break;
                     case Ghost.MOVE_DOWN:
-                        if(Consts.s[x][y+1] <= 0 && Consts.s[x][y-1] <= 0) {
+                        if(Stage.currentStage[x][y+1] <= 0 && Stage.currentStage[x][y-1] <= 0) {
                             if(Math.random() < 0.5) {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_RIGHT);
@@ -102,10 +104,10 @@ public class GameController {
                                 lGhost.setPosition(x, y);
                                 lGhost.setMovDirection(Ghost.MOVE_DOWN);
                             }
-                        } else if(Consts.s[x][y+1] <= 0) {
+                        } else if(Stage.currentStage[x][y+1] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_RIGHT);
-                        } else if(Consts.s[x][y-1] <= 0) {
+                        } else if(Stage.currentStage[x][y-1] <= 0) {
                             lGhost.setPosition(x, y);
                             lGhost.setMovDirection(Ghost.MOVE_LEFT);
                         } else {
@@ -129,14 +131,13 @@ public class GameController {
                 if(eTemp.isTransposable()){
                     e.remove(eTemp);
                 lPacman.Pontos(eTemp);
-                System.out.println(lPacman.GetPoints());
                 }
                 else if (eTemp.isMortal()){ //detecta que morreu
                     lPacman.setPosition(15.0, 9.0);
                     lPacman.Vidas--;
                     lPacman.setMovDirection(Pacman.STOP);
+                        
                 }
-            
             }
         }
         

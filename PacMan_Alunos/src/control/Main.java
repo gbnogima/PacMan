@@ -1,5 +1,7 @@
 package control;
 
+import elements.Pacman;
+
 /**
  * Projeto de POO 2017
  * 
@@ -17,6 +19,10 @@ public class Main {
                 screen.go();
             }
         });
+    }
+
+    static void main(Object object, int level) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

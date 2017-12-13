@@ -10,6 +10,8 @@ public class Pacman extends Element  implements Serializable{
     
     public int Points = 0;
     public int Vidas = 3;
+    public static int level = 1;
+    public int countItems = 0;
     
     
     public static final int STOP = 0;
@@ -29,6 +31,9 @@ public class Pacman extends Element  implements Serializable{
         Drawing.draw(g, this.imageIcon, pos.getY(), pos.getX());
     }
     
+    public void setLevel (int level){
+        this.level = level;
+    }
     
     public void Pontos(Element e)
     {
@@ -36,6 +41,7 @@ public class Pacman extends Element  implements Serializable{
        if(e instanceof Fire)
        {
            Points+=10;
+           countItems--;
        }
        
        if(e instanceof Fruit)
@@ -47,6 +53,7 @@ public class Pacman extends Element  implements Serializable{
        if(e instanceof Powerup)
        {
            Points+=11;
+           countItems--;
        }
     }
     

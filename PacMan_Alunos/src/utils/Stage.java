@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author leodaher
  */
 public class Stage {
-    
+    public static int [][] currentStage;
     public static void draw(Graphics g, int [][] matrix) {
         int i, j;
         
