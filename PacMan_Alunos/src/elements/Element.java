@@ -53,6 +53,10 @@ public abstract class Element implements Serializable{
         else
             return false;
     }
+    
+    public Position getPosition() {
+        return pos;
+    }
 
     public String getStringPosition() {
         return ("(" + pos.getX() + ", " + pos.getY() + ")");

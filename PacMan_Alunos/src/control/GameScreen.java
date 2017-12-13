@@ -92,69 +92,51 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
                         { 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2},
                         { 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6}};*/
       
-      int [][] s ={	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
-                      	{ 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2},
-                        { 2, 0, 2, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 1, 1, 4, 0, 1, 1, 1, 0, 3, 1, 1, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2},
-                        { 2, 0, 3, 1, 1, 0, 5, 1, 0, 1, 0, 1, 6, 0, 1, 1, 4, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 2, 0, 3, 1, 1, -1, 1, 1, 4, 0, 2, 0, 2, 0, 2},
-                        {2, 0, 0, 0, 2, 0, 2, -1, -1, -1, -1, -1, 2, 0, 2, 0, 0, 0, 2},
-                        {2, 0, 2, 0, 2, 0, 5, 1, 1,  1, 1,  1, 6, 0, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 5, 1, 0, 3, 1, 1, 0, 1, 0, 1, 1, 4, 0, 1, 6, 0, 2},
-                        { 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2},
-                        { 2, 0, 2, 0, 1, 6, 0, 1, 1, 1, 1, 1, 0, 5, 1, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 2, 0, 2},
-                        { 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2},
-                        { 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6}};
+      
 
        for (int i = 0; i<19; i++){
            for(int j = 0; j<19;j++){
-               if (s[i][j]== 1){
+               if (Consts.s[i][j]== 1){
                   Parede p1 = new Parede("hor.png");
                   p1.setPosition(i,j);
                   this.addElement(p1); 
                }
-               if (s[i][j]== 2){
+               if (Consts.s[i][j]== 2){
                   Parede p2 = new Parede("ver.png");
                   p2.setPosition(i,j);
                   this.addElement(p2); 
                }
-               if (s[i][j]== 3){
+               if (Consts.s[i][j]== 3){
                   Parede p3 = new Parede("sesq.png");
                   p3.setPosition(i,j);
                   this.addElement(p3); 
                }
-               if (s[i][j]== 4){
+               if (Consts.s[i][j]== 4){
                   Parede p4 = new Parede("sdir.png");
                   p4.setPosition(i,j);
                   this.addElement(p4); 
                }
-               if (s[i][j]== 5){
+               if (Consts.s[i][j]== 5){
                   Parede p5 = new Parede("iesq.png");
                   p5.setPosition(i,j);
                   this.addElement(p5); 
                }
-               if (s[i][j]== 6){
+               if (Consts.s[i][j]== 6){
                   Parede p6 = new Parede("idir.png");
                   p6.setPosition(i,j);
                   this.addElement(p6); 
                }
-               if (s[i][j]== 0){
+               if (Consts.s[i][j]== 0){
                    Fire ball = new Fire("fire.png");
                    ball.setPosition (i,j);
                    this.addElement(ball);
            }             
-               if (s[i][j]== 7){
+               if (Consts.s[i][j]== 7){
                    Powerup pup = new Powerup("pup.png");
                    pup.setPosition (i,j);
                    this.addElement(pup);
            }
-               if (s[i][j]== 8){
+               if (Consts.s[i][j]== 8){
                    Fruit fruit = new Fruit("fruit.png");
                    fruit.setPosition (i,j);
                    this.addElement(fruit);
@@ -219,17 +201,33 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     
      public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            Pacman.setImageIcon("pacman_up.png");
-            Pacman.setMovDirection(Pacman.MOVE_UP);
+            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())-1][(int) Math.round(Pacman.getPosition().getY())];
+            if(position == 0 || position == 7 || position == 8) {
+                Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
+                Pacman.setImageIcon("pacman_up.png");
+                Pacman.setMovDirection(Pacman.MOVE_UP);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            Pacman.setImageIcon("pacman_down.png");
-            Pacman.setMovDirection(Pacman.MOVE_DOWN);
+            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())+1][(int) Math.round(Pacman.getPosition().getY())];
+            if(position == 0 || position == 7 || position == 8) {
+                Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
+                Pacman.setImageIcon("pacman_down.png");
+                Pacman.setMovDirection(Pacman.MOVE_DOWN);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            Pacman.setImageIcon("pacman_left.png");
-            Pacman.setMovDirection(Pacman.MOVE_LEFT);
+            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())-1];
+            if(position == 0 || position == 7 || position == 8) {
+                Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
+                Pacman.setImageIcon("pacman_left.png");
+                Pacman.setMovDirection(Pacman.MOVE_LEFT);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            Pacman.setImageIcon("pacman_right.png");
-            Pacman.setMovDirection(Pacman.MOVE_RIGHT);
+            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())+1];
+            if(position == 0 || position == 7 || position == 8) {
+                Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
+                Pacman.setImageIcon("pacman_right.png");
+                Pacman.setMovDirection(Pacman.MOVE_RIGHT);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             Pacman.setMovDirection(Pacman.STOP);
         }
