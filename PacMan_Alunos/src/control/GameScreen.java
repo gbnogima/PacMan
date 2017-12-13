@@ -175,7 +175,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
            
         this.controller.drawAllElements(elemArray, g2);
         this.controller.processAllElements(elemArray);
-        this.setTitle("Pacman Pontuação:" + Pacman.GetPoints());
+        this.setTitle("Pacman Fase:" + Pacman.level);
         label1.setText("Score:"+Pacman.GetPoints());
         label2.setText("Vidas:"+Pacman.GetVidas()); 
         
