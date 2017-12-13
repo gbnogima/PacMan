@@ -22,6 +22,7 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import utils.Stage;
 
 /**
  * Projeto de POO 2017
@@ -71,91 +72,59 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         g4.setPosition(7,13);
         this.addElement(g4);
         
-/*int [][] s =	{	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
-                        { 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 7, 2},
-                        { 2, 0, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 4, 0, 2},
-                        { 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 1, 6, 0, 2, 0, 2, 0, 2, 0, 5, 1, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2},
-                        { 2, 0, 2, 0, 1, 1, 1, 6, 0, 2, 0, 5, 1, 1, 1, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 2, 0, 3, 1, 1, -1, 1, 1, 4, 0, 2, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 2, 0, 2, -1, -1, -1, -1, -1, 2, 0, 2, 0, 0, 0, 2},
-                        { 2, 0, 2, 0, 2, 0, 5, 1, 1, 1, 1, 1, 6, 0, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 1, 1, 1, 4, 0, 2, 0, 3, 1, 1, 1, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 2},
-                        { 2, 0, 2, 0, 1, 4, 0, 2, 0, 2, 0, 2, 0, 3, 1, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 2},
-                        { 2, 0, 5, 1, 0, 2, 0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 6, 0, 2},
-                	{ 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 7, 2},
-                	{ 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6}};
-
-      /*  int [][] s = {	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
-                        { 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2},
-                        { 2, 0, 3, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 4, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 3, 4, 0, 3, 4, 8, 3, 4, 0, 3, 4, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 2, 2, 0, 2, 2, 0, 2, 2, 0, 2, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 5, 6, 0, 5, 6, 0, 5, 6, 0, 5, 6, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 2, 0, 3, 1, 1, -1, 1, 1, 4, 0, 2, 0, 0, 0, 2},
-                        {2, 0, 2, 0, 2, 0, 2, -1, -1, -1, -1, -1, 2, 0, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 2, 0, 5, 1, 1, 1, 1, 1, 6, 0, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 3, 4, 0, 2, 0, 2},
-                        { 2, 0, 0, 0, 2, 2, 0, 2, 2, 0, 2, 2, 0, 2, 2, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 5, 6, 0, 5, 6, 0, 5, 6, 0, 5, 6, 0, 2, 0, 2},
-                        { 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2},
-                        { 2, 0, 5, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 6, 0, 2},
-                        { 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 2},
-                        { 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6}};*/
-      
-      
-
-       for (int i = 0; i<19; i++){
+        
+        if (Pacman.level == 1)
+            Stage.currentStage = Consts.s1;
+        else if (Pacman.level == 2)
+            Stage.currentStage = Consts.s2;
+        else if (Pacman.level == 3)
+            Stage.currentStage = Consts.s3;
+        
+        for (int i = 0; i<19; i++){
            for(int j = 0; j<19;j++){
-               if (Consts.s[i][j]== 1){
+               if (Stage.currentStage[i][j]== 1){
                   Parede p1 = new Parede("hor.png");
                   p1.setPosition(i,j);
                   this.addElement(p1); 
                }
-               if (Consts.s[i][j]== 2){
+               if (Stage.currentStage[i][j]== 2){
                   Parede p2 = new Parede("ver.png");
                   p2.setPosition(i,j);
                   this.addElement(p2); 
                }
-               if (Consts.s[i][j]== 3){
+               if (Stage.currentStage[i][j]== 3){
                   Parede p3 = new Parede("sesq.png");
                   p3.setPosition(i,j);
                   this.addElement(p3); 
                }
-               if (Consts.s[i][j]== 4){
+               if (Stage.currentStage[i][j]== 4){
                   Parede p4 = new Parede("sdir.png");
                   p4.setPosition(i,j);
                   this.addElement(p4); 
                }
-               if (Consts.s[i][j]== 5){
+               if (Stage.currentStage[i][j]== 5){
                   Parede p5 = new Parede("iesq.png");
                   p5.setPosition(i,j);
                   this.addElement(p5); 
                }
-               if (Consts.s[i][j]== 6){
+               if (Stage.currentStage[i][j]== 6){
                   Parede p6 = new Parede("idir.png");
                   p6.setPosition(i,j);
                   this.addElement(p6); 
                }
-               if (Consts.s[i][j]== 0){
+               if (Stage.currentStage[i][j]== 0){
                    Fire ball = new Fire("fire.png");
                    ball.setPosition (i,j);
                    this.addElement(ball);
+                   Pacman.countItems++;
            }             
-               if (Consts.s[i][j]== 7){
+               if (Stage.currentStage[i][j]== 7){
                    Powerup pup = new Powerup("pup.png");
                    pup.setPosition (i,j);
                    this.addElement(pup);
+                   Pacman.countItems++;
            }
-               if (Consts.s[i][j]== 8){
+               if (Stage.currentStage[i][j]== 8){
                    Fruit fruit = new Fruit("fruit.png");
                    fruit.setPosition (i,j);
                    this.addElement(fruit);
@@ -206,9 +175,20 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         g.dispose();
         g2.dispose();
         if(Pacman.GetVidas() == 0) {
+            Pacman.level = 1;
             this.setVisible(false);
             this.dispose();
             Main.main(null);
+        }
+        if (Pacman.countItems == 0){
+            Pacman.level++;
+            this.setVisible(false);
+            this.dispose();
+            GameScreen screen = new GameScreen();
+            screen.setVisible(true);
+            screen.createBufferStrategy(2);
+            screen.go();
+            
         }
         if (!getBufferStrategy().contentsLost()) {
             getBufferStrategy().show();
@@ -228,28 +208,28 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     
      public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())-1][(int) Math.round(Pacman.getPosition().getY())];
+            int position = Stage.currentStage[(int) Math.round(Pacman.getPosition().getX())-1][(int) Math.round(Pacman.getPosition().getY())];
             if(position == 0 || position == 7 || position == 8) {
                 Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
                 Pacman.setImageIcon("pacman_up.png");
                 Pacman.setMovDirection(Pacman.MOVE_UP);
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())+1][(int) Math.round(Pacman.getPosition().getY())];
+            int position = Stage.currentStage[(int) Math.round(Pacman.getPosition().getX())+1][(int) Math.round(Pacman.getPosition().getY())];
             if(position == 0 || position == 7 || position == 8) {
                 Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
                 Pacman.setImageIcon("pacman_down.png");
                 Pacman.setMovDirection(Pacman.MOVE_DOWN);
             }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())-1];
+            int position = Stage.currentStage[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())-1];
             if(position == 0 || position == 7 || position == 8) {
                 Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
                 Pacman.setImageIcon("pacman_left.png");
                 Pacman.setMovDirection(Pacman.MOVE_LEFT);
             }
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            int position = Consts.s[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())+1];
+            int position = Stage.currentStage[(int) Math.round(Pacman.getPosition().getX())][(int) Math.round(Pacman.getPosition().getY())+1];
             if(position == 0 || position == 7 || position == 8) {
                 Pacman.setPosition((double) Math.round(Pacman.getPosition().getX()),(double) Math.round(Pacman.getPosition().getY()));
                 Pacman.setImageIcon("pacman_right.png");
