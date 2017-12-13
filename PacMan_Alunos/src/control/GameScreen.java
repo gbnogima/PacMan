@@ -51,7 +51,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         elemArray = new ArrayList<>();
 
         /*Cria e adiciona elementos*/
-        Pacman = new Pacman("Pacman.png");
+        Pacman = new Pacman("pacman_right.png");
         Pacman.setPosition(15,9);
         this.addElement(Pacman);
         
@@ -205,6 +205,11 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     label2.setText("Vidas:"+Pacman.GetVidas()); 
         g.dispose();
         g2.dispose();
+        if(Pacman.GetVidas() == 0) {
+            this.setVisible(false);
+            this.dispose();
+            Main.main(null);
+        }
         if (!getBufferStrategy().contentsLost()) {
             getBufferStrategy().show();
         }
