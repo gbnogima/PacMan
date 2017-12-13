@@ -185,7 +185,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         this.controller.processAllElements(elemArray);
         this.setTitle("Pacman Pontuação:" + Pacman.GetPoints());
      label1.setText("Score:"+Pacman.GetPoints());
-     
+    label2.setText("Vidas:"+Pacman.GetVidas()); 
         g.dispose();
         g2.dispose();
         if (!getBufferStrategy().contentsLost()) {
@@ -246,8 +246,9 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        elements.Pacman Pac = new elements.Pacman("");
         label1 = new java.awt.Label();
+        elements.Pacman Pac = new elements.Pacman("");
+        label2 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SCC0604 - Pacman");
@@ -258,10 +259,20 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         label1.setBackground(java.awt.Color.black);
         label1.setFont(new java.awt.Font("Noto Sans CJK JP Black", 0, 24)); // NOI18N
         label1.setForeground(java.awt.Color.white);
-        label1.setText("Score"+ Pac.GetPoints());
+        label1.setText("Points");
         label1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 label1KeyPressed(evt);
+            }
+        });
+
+        label2.setBackground(java.awt.Color.black);
+        label2.setFont(new java.awt.Font("Noto Sans CJK JP Black", 0, 24)); // NOI18N
+        label2.setForeground(java.awt.Color.white);
+        label2.setText("Score"+ Pac.GetPoints());
+        label2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                label2KeyPressed(evt);
             }
         });
 
@@ -269,16 +280,20 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(459, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -291,8 +306,13 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
       
     }//GEN-LAST:event_label1KeyPressed
 
+    private void label2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_label2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label2KeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label label1;
+    private java.awt.Label label2;
     // End of variables declaration//GEN-END:variables
     
     @Override

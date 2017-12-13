@@ -9,6 +9,8 @@ public class Pacman extends Element  implements Serializable{
     
     
     public int Points = 0;
+    public int Vidas = 3;
+    
     
     public static final int STOP = 0;
     public static final int MOVE_LEFT = 1;
@@ -46,6 +48,11 @@ public class Pacman extends Element  implements Serializable{
        {
            Points+=11;
        }
+    }
+    
+    public int GetVidas()
+    {
+       return Vidas;
     }
     
     public int GetPoints()

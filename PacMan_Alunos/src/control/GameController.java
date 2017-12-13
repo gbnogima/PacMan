@@ -36,6 +36,7 @@ public class GameController {
                 }
                 else if (eTemp.isMortal()){ //detecta que morreu
                     lPacman.setPosition(15.0, 9.0);
+                    lPacman.Vidas--;
                     lPacman.setMovDirection(Pacman.STOP);
                 }
             
