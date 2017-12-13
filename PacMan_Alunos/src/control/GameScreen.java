@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import utils.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * Projeto de POO 2017
@@ -170,8 +171,8 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         this.controller.drawAllElements(elemArray, g2);
         this.controller.processAllElements(elemArray);
         this.setTitle("Pacman Pontuação:" + Pacman.GetPoints());
-     label1.setText("Score:"+Pacman.GetPoints());
-    label2.setText("Vidas:"+Pacman.GetVidas()); 
+        label1.setText("Score:"+Pacman.GetPoints());
+        label2.setText("Vidas:"+Pacman.GetVidas()); 
         g.dispose();
         g2.dispose();
         if(Pacman.GetVidas() == 0) {
@@ -179,6 +180,7 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
             this.setVisible(false);
             this.dispose();
             Main.main(null);
+            JOptionPane.showMessageDialog(this,"GameOver");
         }
         if (Pacman.countItems == 0){
             Pacman.level++;
