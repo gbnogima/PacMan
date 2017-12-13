@@ -184,6 +184,8 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         }
         if (Pacman.countItems == 0){
             Pacman.level++;
+            if (Pacman.level == 4)
+                Pacman.level = 1;
             this.setVisible(false);
             this.dispose();
             GameScreen screen = new GameScreen();

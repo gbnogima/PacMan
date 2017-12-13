@@ -52,8 +52,13 @@ public class Pacman extends Element  implements Serializable{
        
        if(e instanceof Powerup)
        {
-           Points+=11;
+           Points+=50;
            countItems--;
+       }
+       
+       if(e instanceof Ghost)
+       {
+           Points+=500;
        }
     }
     
