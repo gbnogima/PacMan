@@ -3,14 +3,18 @@ package control;
 import elements.Element;
 import elements.Ghost;
 import elements.Pacman;
+import elements.Powerup;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import utils.Consts;
 
 
 
 
 public class GameController {
+    
     public void drawAllElements(ArrayList<Element> elemArray, Graphics g){
         for(int i=0; i<elemArray.size(); i++){
             elemArray.get(i).autoDraw(g);
@@ -127,9 +131,35 @@ public class GameController {
             eTemp = e.get(i);
             if(lPacman.overlap(eTemp)){
                 if(eTemp.isTransposable()){
-                    e.remove(eTemp);
-                lPacman.Pontos(eTemp);
-                System.out.println(lPacman.GetPoints());
+                    if(eTemp instanceof Ghost) {
+                        eTemp.setPosition(7, 7);
+                        eTemp.setTransposable(false);
+                        eTemp.setImageIcon("ghost.png");
+                    } else {
+                        e.remove(eTemp);
+                    }
+                    lPacman.Pontos(eTemp);
+                    if(eTemp instanceof Powerup) {
+                        
+                        for(j = 1; j < 5; j++) {
+                            Ghost lGhost = (Ghost) e.get(j);
+                            lGhost.setTransposable(true);
+                            lGhost.setImageIcon("aghost.png");
+                        }
+                        
+                        new Timer().schedule(
+                                new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        int k;
+                                        for(k = 1; k < 5; k++) {
+                                            Ghost lGhost = (Ghost) e.get(k);
+                                            lGhost.setTransposable(false);
+                                            lGhost.setImageIcon("ghost.png");
+                                        }
+                                    }
+                                }, 7000);
+                    }
                 }
                 else if (eTemp.isMortal()){ //detecta que morreu
                     lPacman.setPosition(15.0, 9.0);
