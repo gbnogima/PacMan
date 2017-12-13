@@ -29,8 +29,11 @@ public class GameController {
         for(int i = 1; i < e.size(); i++){
             eTemp = e.get(i);
             if(lPacman.overlap(eTemp)){
-                if(eTemp.isTransposable())
+                if(eTemp.isTransposable()){
                     e.remove(eTemp);
+                lPacman.Pontos(eTemp);
+                System.out.println(lPacman.GetPoints());
+                }
                 else if (eTemp.isMortal()){ //detecta que morreu
                     lPacman.setPosition(15.0, 9.0);
                     lPacman.setMovDirection(Pacman.STOP);
@@ -43,11 +46,13 @@ public class GameController {
     }
     public boolean isValidPosition(ArrayList<Element> elemArray, Element elem){
         Element elemAux;
+        
         for(int i = 1; i < elemArray.size(); i++){
             elemAux = elemArray.get(i);            
             if(!elemAux.isTransposable() && !elemAux.isMortal())
                 if(elemAux.overlap(elem))
-                    return false;
+                return false;
+                  
         }        
         return true;
     }

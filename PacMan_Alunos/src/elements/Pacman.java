@@ -7,6 +7,9 @@ import java.io.Serializable;
 
 public class Pacman extends Element  implements Serializable{
     
+    
+    public int Points = 0;
+    
     public static final int STOP = 0;
     public static final int MOVE_LEFT = 1;
     public static final int MOVE_RIGHT = 2;
@@ -23,7 +26,35 @@ public class Pacman extends Element  implements Serializable{
     public void autoDraw(Graphics g){
         Drawing.draw(g, this.imageIcon, pos.getY(), pos.getX());
     }
-
+    
+    
+    public void Pontos(Element e)
+    {
+        
+       if(e instanceof Fire)
+       {
+           Points+=10;
+       }
+       
+       if(e instanceof Fruit)
+       {
+           Points+=200;
+       }
+       
+       
+       if(e instanceof Powerup)
+       {
+           Points+=11;
+       }
+    }
+    
+    public int GetPoints()
+    {
+        
+        return Points;
+    }
+    
+    
     public void backToLastPosition(){
         this.pos.comeBack();
     }
