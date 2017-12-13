@@ -55,9 +55,21 @@ public class GameScreen extends javax.swing.JFrame implements KeyListener {
         Pacman.setPosition(15,9);
         this.addElement(Pacman);
         
-        Ghost ghost = new Ghost("ghost.png");
-        ghost.setPosition(9,7);
-        this.addElement(ghost);
+        Ghost g1 = new Ghost("ghost.png");
+        g1.setPosition(7,13);
+        this.addElement(g1);
+        
+        Ghost g2 = new Ghost("ghost.png");
+        g2.setPosition(1,3);
+        this.addElement(g2);
+        
+        Ghost g3 = new Ghost("ghost.png");
+        g3.setPosition(5,2);
+        this.addElement(g3);
+        
+        Ghost g4 = new Ghost("ghost.png");
+        g4.setPosition(7,13);
+        this.addElement(g4);
         
 /*int [][] s =	{	{ 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4},
                         { 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 7, 2},

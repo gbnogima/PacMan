@@ -7,6 +7,8 @@ package elements;
 import utils.Drawing;
 import java.awt.Graphics;
 import java.io.Serializable;
+import utils.Consts;
+import utils.Position;
 
 /**
  *
@@ -29,8 +31,20 @@ public class Ghost extends Element implements Serializable{
         this.movDirection = MOVE_RIGHT;
     }
     
+    public int getMovDirection() {
+        return movDirection;
+    }
+    
     public void setMovDirection(int direction) {
         movDirection = direction;
+    }
+    
+    public void backToLastPosition(){
+        this.pos.comeBack();
+    }
+    
+    public Position getPosition() {
+        return this.pos;
     }
 
     @Override
@@ -41,6 +55,8 @@ public class Ghost extends Element implements Serializable{
     }
     
     public void move() {
+        int x = (int) Math.round(pos.getX());
+        int y = (int) Math.round(pos.getY());
         switch (movDirection) {
             case MOVE_LEFT:
                 this.moveLeft();
